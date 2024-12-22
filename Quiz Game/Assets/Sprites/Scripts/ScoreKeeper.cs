@@ -24,7 +24,12 @@ public class ScoreKeeper : MonoBehaviour
         return this.questionSeen;
     }
     public int CalculateScore(){
-        return Mathf.RoundToInt(correctAnswers / questionSeen * 100);
+        if(correctAnswers == 0 && questionSeen == 0){
+            return 100;
+        }else {
+            return Mathf.RoundToInt(correctAnswers / (float)questionSeen * 100);
+        }
+        
     }
 
 }
